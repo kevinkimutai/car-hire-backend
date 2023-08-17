@@ -1,6 +1,7 @@
+import { DEVELOPMENT_URL, PRODUCTION_URL } from "../constants/constants.js";
 import { AppError } from "./globalAppError.js";
 
-const whitelist = [process.env.DEVELOPMENT_URL, process.env.PRODUCTION_URL];
+const whitelist = [DEVELOPMENT_URL, PRODUCTION_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {
