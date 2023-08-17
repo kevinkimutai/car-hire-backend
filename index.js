@@ -5,7 +5,6 @@ import morgan from "morgan";
 import stripe from "stripe";
 import compression from "compression";
 import helmet from "helmet";
-import rateLimit from "express-rate-limit";
 
 import { errorHandler } from "./controller/error-controller.js";
 import dbConnect from "./db/dbConnect.js";
@@ -30,22 +29,12 @@ export const stripePkg = stripe(process.env.STRIPE_SECRET_KEY);
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
-//Rate Limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-});
 
 //Xss Attacks Helmet
 app.use(helmet());
 
 //body parser middleware
 app.use(express.json());
-
-//limit middleware
-app.use("/api", limiter);
 
 //compress responses
 app.use(compression());
