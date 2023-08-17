@@ -1,6 +1,6 @@
 import { AppError } from "./globalAppError.js";
 
-const whitelist = ["http://localhost:3000"];
+const whitelist = [process.env.DEVELOPMENT_URL, process.env.PRODUCTION_URL];
 
 const corsOptions = {
   origin: function (origin, callback) {

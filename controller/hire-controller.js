@@ -119,8 +119,6 @@ export const CREATEHIRE = catchAsync(async (req, res, next) => {
     createdCars.push(newCar._id);
   }
 
-  console.log("CREATED", createdCars);
-
   const { startDate, endDate } = deliveryDate;
 
   if (!startDate || !endDate) {

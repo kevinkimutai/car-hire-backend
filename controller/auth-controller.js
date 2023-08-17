@@ -91,8 +91,6 @@ export const AUTHPROTECTED = catchAsync(async (req, res, next) => {
 
 export const RESTRICTEDROUTE = (...allowedRoles) => {
   return (req, res, next) => {
-    console.log(req.user);
-
     if (!allowedRoles.includes(req.user.role)) {
       return next(new AppError("Forbidden,Login with proper rights", 403));
     }

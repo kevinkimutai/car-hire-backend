@@ -81,8 +81,6 @@ userSchema.pre(/^find/, function (next) {
 //     .update(resetToken)
 //     .digest("hex");
 
-//   console.log({ HASHED: this.resetToken }, resetToken);
-
 //   this.resetTokenExpires = Date.now() + 10 * 60 * 1000; //10 minutes
 
 //   return resetToken;
