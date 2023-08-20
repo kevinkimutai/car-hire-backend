@@ -53,11 +53,11 @@ export const LOGIN = catchAsync(async (req, res, next) => {
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
 
   // Set the domain based on the environment
-  if (process.env.NODE_ENV === "production") {
-    cookieOptions.domain = PRODUCTION_URL;
-  } else if (process.env.NODE_ENV === "development") {
-    cookieOptions.domain = "localhost";
-  }
+  // if (process.env.NODE_ENV === "production") {
+  //   cookieOptions.domain = PRODUCTION_URL;
+  // } else if (process.env.NODE_ENV === "development") {
+  //   cookieOptions.domain = "localhost";
+  // }
 
   res.cookie("jwt", accessToken, cookieOptions);
 
