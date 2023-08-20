@@ -53,7 +53,7 @@ export const LOGIN = catchAsync(async (req, res, next) => {
 
   // Set the domain based on the environment
   if (process.env.NODE_ENV === "production") {
-    cookieOptions.domain = "onrender.com";
+    cookieOptions.domain = ".onrender.com";
   } else if (process.env.NODE_ENV === "development") {
     cookieOptions.domain = "localhost";
   }
