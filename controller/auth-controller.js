@@ -4,6 +4,7 @@ import User from "../model/user.js";
 import { generateToken } from "../utils/generateToken.js";
 import jwt from "jsonwebtoken";
 import { promisify } from "util";
+import { PRODUCTION_URL } from "../constants/constants.js";
 
 export const SIGNUP = catchAsync(async (req, res, next) => {
   const { fname, lname, email, password } = req.body;
@@ -53,7 +54,7 @@ export const LOGIN = catchAsync(async (req, res, next) => {
 
   // Set the domain based on the environment
   if (process.env.NODE_ENV === "production") {
-    cookieOptions.domain = "vercel.app";
+    cookieOptions.domain = PRODUCTION_URL;
   } else if (process.env.NODE_ENV === "development") {
     cookieOptions.domain = "localhost";
   }
