@@ -11,7 +11,7 @@ const corsOptions = {
       callback(new AppError("Not allowed by CORS", 401));
     }
   },
-  credentials: true, // Add this line to enable credentials
+  credentials: true, //  enable credentials
 };
 
 export default corsOptions;
