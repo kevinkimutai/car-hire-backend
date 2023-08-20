@@ -14,4 +14,9 @@ const corsOptions = {
   credentials: true, //  enable credentials
 };
 
+if (process.env.NODE_ENV === "production") {
+  corsOptions.sameSite = "none"; // Set sameSite attribute
+  corsOptions.secure = true; // Set secure attribute
+}
+
 export default corsOptions;
