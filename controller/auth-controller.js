@@ -50,8 +50,8 @@ export const LOGIN = catchAsync(async (req, res, next) => {
   };
 
   if (process.env.NODE_ENV === "production") {
-    cookieOptions.secure = true;
     cookieOptions.sameSite = "none";
+    cookieOptions.secure = true;
   }
 
   res.cookie("jwt", accessToken, cookieOptions);
